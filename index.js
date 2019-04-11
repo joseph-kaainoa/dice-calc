@@ -3,8 +3,31 @@ import Dice from './Dice';
 
 let myDice = new Dice(6);
 console.log(myDice.sides);
+let rollResult = 0;
+let diceString = '2d20+2';
 
-let d20 = Dice.parse('2d20+2');
-console.log('sides of dice: ' + d20.sides);
-console.log('number of d20s: ' + d20.count);
-console.log('bonus of d20s: ' + d20.bonus);
+console.log('Given: ' + diceString);
+myDice = Dice.parse(diceString);
+console.log('\tsides of dice: ' + myDice.sides);
+console.log('\tnumber of d20s: ' + myDice.count);
+console.log('\tbonus of d20s: ' + myDice.bonus);
+rollResult = myDice.rollTotal();
+//console.log('\troll: ' + rollResult + ' + ' + myDice.bonus + ' = ' + (rollResult + myDice.bonus));
+//console.log(`\troll: ${rollResult} + ${myDice.bonus} = ${(parseInt(rollResult) + parseInt(myDice.bonus))}`);
+console.log(`\troll: ${rollResult.subTotal} + ${rollResult.bonus} = ${(parseInt(rollResult.subTotal) + parseInt(rollResult.bonus))}`);
+//console.log(`\troll: ${rollResult.total} + ${myDice.bonus} = ${(parseInt(rollResult.total) + parseInt(myDice.bonus))}`);
+// rollResult.rolls.forEach(function(item, index) {
+//     console.log(item);
+// });
+//console.log('(' + rollResult.rolls.map( item => item + ' + ' ) + ')');
+console.log(`\trolls (${rollResult.rolls.join(' + ')}) + ${rollResult.bonus} = ${rollResult.total}`);
+
+diceString = '6d6-5';
+console.log('Given: ' + diceString);
+myDice = Dice.parse(diceString);
+console.log('\tsides of dice: ' + myDice.sides);
+console.log('\tnumber of d20s: ' + myDice.count);
+console.log('\tbonus of d20s: ' + myDice.bonus);
+rollResult = myDice.roll(); // doesn't add the bonus automatically
+console.log(`\troll: ${rollResult.subTotal} + ${myDice.bonus} = ${(parseInt(rollResult.subTotal) + parseInt(myDice.bonus))}`);
+console.log(`\trolls (${rollResult.rolls.join(' + ')}) + ${myDice.bonus} = ${(parseInt(rollResult.subTotal) + parseInt(myDice.bonus))}`);
