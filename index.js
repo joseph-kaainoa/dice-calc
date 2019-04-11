@@ -12,14 +12,7 @@ console.log('\tsides of dice: ' + myDice.sides);
 console.log('\tnumber of d20s: ' + myDice.count);
 console.log('\tbonus of d20s: ' + myDice.bonus);
 rollResult = myDice.rollTotal();
-//console.log('\troll: ' + rollResult + ' + ' + myDice.bonus + ' = ' + (rollResult + myDice.bonus));
-//console.log(`\troll: ${rollResult} + ${myDice.bonus} = ${(parseInt(rollResult) + parseInt(myDice.bonus))}`);
 console.log(`\troll: ${rollResult.subTotal} + ${rollResult.bonus} = ${(parseInt(rollResult.subTotal) + parseInt(rollResult.bonus))}`);
-//console.log(`\troll: ${rollResult.total} + ${myDice.bonus} = ${(parseInt(rollResult.total) + parseInt(myDice.bonus))}`);
-// rollResult.rolls.forEach(function(item, index) {
-//     console.log(item);
-// });
-//console.log('(' + rollResult.rolls.map( item => item + ' + ' ) + ')');
 console.log(`\trolls (${rollResult.rolls.join(' + ')}) + ${rollResult.bonus} = ${rollResult.total}`);
 
 diceString = '6d6-5';
